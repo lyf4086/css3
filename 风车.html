@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{perspective: 1000px;background: rgb(53, 49, 50);overflow: hidden;
+		backgr-ound: url(./2.jpg)no-repeat;background-size: 100% 100%}
+	.main{width:400px;height:580px;margin:100px auto;transform-style:preserve-3d;;perspective: 500px;
+	animation: zhuan 6s linear infinite ;}
+	.content{width:400px;height:400px;position: relative;z-index: 2;}
+	.line{
+		width:200px;height:3px;background: black;position: absolute;
+		left:200px;top:198px;transform-origin: left center;
+	}
+	.dian{position: absolute;left:195px;top:195px;width:10px;height:10px;
+	border-radius:50%;background:blue;}
+	.yezhi{width:150px;height:40px;background: chartreuse;position: absolute;
+	;right:0;top:3px}
+	.content{animation: move 3s linear infinite}
+
+	@keyframes move{
+		0%{transform: rotateZ(0deg) translateZ(50px)}
+		100%{transform: rotateZ(-360deg) translateZ(50px)}
+	}
+	@keyframes zhuan{
+		0%{transform: rotateY(0deg)}
+		100%{transform: rotateY(360deg)}
+	}
+.fang{width: 100px;height:100px;position: relative;
+transform-style:preserve-3d; transform:rotateX(-90deg);z-index: 1;top:-80px;left:150px;}
+.gan{position: absolute;left:50px;top:50px;width:50px;height:2px;
+transform-origin: left center;transform-style:preserve-3d;}
+.qiang{position: absolute;width:27px;height:400px;border:1px solid #333;box-sizing: border-box;background:wheat;
+right:0;top:-200px;transform:rotateX(90deg) rotateY(90deg);transform-style:preserve-3d;}
+.ding{position: absolute;width:0;height:0;border-width:0px 17px 100px 17px;
+border-style:solid;border-color: transparent transparent red transparent ;
+top:-80px;transform-origin:center 80px ;transform: rotateX(28deg)}
+
+	</style>
+</head>
+<body>
+	<div class="main">
+	<div class="content">
+		<div class="line">
+			<div class="yezhi"></div>
+		</div>
+		<div class="line">
+			<div class="yezhi"></div>
+		</div>
+		<div class="line">
+			<div class="yezhi"></div>
+		</div>
+		<div class="line">
+			<div class="yezhi"></div>
+		</div>
+		<div class="line">
+			<div class="yezhi"></div>
+		</div>
+		<div class="dian"></div>
+	</div>
+	<div class="fang">
+		<div class="gan">
+			<div class="qiang">
+				<div class="ding"></div>
+			</div>
+		</div>
+		<div class="gan">
+			<div class="qiang">
+				<div class="ding"></div>
+			</div>
+		</div>
+		<div class="gan">
+			<div class="qiang">
+				<div class="ding"></div>
+			</div>
+		</div>
+		<div class="gan">
+			<div class="qiang">
+				<div class="ding"></div>
+			</div>
+		</div>
+		<div class="gan">
+			<div class="qiang">
+				<div class="ding"></div>
+			</div>
+		</div>
+		<div class="gan">
+			<div class="qiang">
+				<div class="ding"></div>
+			</div>
+		</div>
+		<div class="gan">
+			<div class="qiang">
+				<div class="ding"></div>
+			</div>
+		</div>
+		<div class="gan">
+			<div class="qiang">
+				<div class="ding"></div>
+			</div>
+		</div>
+		<div class="gan">
+			<div class="qiang">
+				<div class="ding"></div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<script>
+	const main=document.querySelector('.content');
+	const aline=document.querySelectorAll('.line');
+	for(let i=0;i<5;i++){
+		aline[i].style.transform='rotateZ('+360/5*i+'deg)'
+	}
+	const gan=document.querySelectorAll('.gan');
+	for(let i=0,len=gan.length;i<len;i++){
+		gan[i].style.transform='rotate('+360/len*i+'deg)'
+	}
+	
+	
+	
+	
+	</script>
+</body>
+</html>

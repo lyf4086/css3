@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    body{height:100%;perspective: 1000px;background: #000;overflow: hidden;}
+    #root{position: relative;left:-100px;}
+    .floor{width:400px;height:400px;
+            position: absolute;transform-style: preserve-3d;
+            transform-origin: 800px center;
+            /* border:1px solid #fff; */
+            }
+    .wrap{width:400px;height:400px;position: absolute;transform-style: preserve-3d;
+            /* border:1px solid #fff; */
+        }
+    .box1,.box2,.box3,.box4{
+        position: absolute;top:0;right:0;bottom: 0;left:0;
+        margin: auto;background: linear-gradient( red ,transparent,transparent,transparent);
+        opacity: 0.3;
+    }
+    .box1,.box6{width:50px;height:50px;}
+    .box2,.box3,.box4,.box5{width:50px;height:300px;}
+    .box1{transform: translateY(-150px) rotateX(90deg)}
+    .box6{transform: translateY(150px) rotateX(90deg)}
+    .box2{transform: translateX(-25px) rotateY(90deg)}
+    .box3{transform: translateZ(-25px) rotateY(0deg)}
+    .box4{transform: translateX(25px) rotateY(90deg)}
+    .box5{transform: translateZ(25px) rotateY(0deg)}
+
+    @keyframes rotate1{
+        from{transform:rotateY(0deg) }
+        to{transform:  rotateY(360deg) }
+    }
+    @keyframes wraprotate {
+        0%{transform: rotateX(0deg)}
+        100%{transform: rotateX(720deg)}
+    }
+
+    </style>
+</head>
+<body>
+    <div id="root">
+        <!-- <div class="floor">
+            <div class="wrap">
+                <div class="box1"></div>
+                <div class="box2"></div>
+                <div class="box3"></div>
+                <div class="box4"></div>
+                <div class="box5"></div>
+                <div class="box6"></div>
+            </div>
+        </div> -->
+    </div>
+    <script>
+    let num=20;
+    let html='';
+    for(let i=0;i<num;i++){
+        html+=`<div class="floor">
+                    <div class="wrap">
+                        <div class="box1"></div>
+                        <div class="box2"></div>
+                        <div class="box3"></div>
+                        <div class="box4"></div>
+                        <div class="box5"></div>
+                        <div class="box6"></div>
+                    </div>
+                </div>`
+    }
+    
+    root.innerHTML=html
+    let floor_list=root.querySelectorAll('.floor');
+    let wrap_list=root.querySelectorAll('.wrap');
+    for(let i=0;i<num;i++){
+        wrap_list[i].style.cssText=`animation:wraprotate 3s ${i*0.1}s linear infinite`
+        floor_list[i].style.cssText=`animation: rotate1 5s ${i*0.15}s linear infinite`
+    }
+    
+    
+    
+    
+    
+    </script>
+</body>
+</html>
